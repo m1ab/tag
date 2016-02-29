@@ -13,6 +13,8 @@ import ru.lumo.html.bs.tag.CompDivNavbarCollapse;
 import ru.lumo.html.bs.tag.LinkItem;
 import ru.lumo.html.producers.DefaultBsPageProducer;
 
+import javax.inject.Inject;
+
 import static ru.lumo.html.bs.tag.BsDivContainer.View.CONTAINER;
 import static ru.lumo.html.bs.tag.BsNav.Type.FIXED_TOP;
 import static ru.lumo.html.bs.tag.BsNav.View.DEFAULT;
@@ -24,6 +26,9 @@ import static ru.lumo.html.bs.tag.BsNav.View.INVERSE;
  * @param <P>
  */
 public class BsNavbarBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P, BsNav> {
+
+    @Inject
+    private CompDivNavbarCollapse collapse;
 
     private List<LinkItem> items;
     private BsNav.View view;

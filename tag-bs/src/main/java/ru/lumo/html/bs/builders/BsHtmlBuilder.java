@@ -57,6 +57,7 @@ public class BsHtmlBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P,
 
     @Override
     public void setProducer(P producer) {
+        this.producer = producer;
         headBuilder.setProducer(producer);
         bodyBuilder.setProducer(producer);
     }

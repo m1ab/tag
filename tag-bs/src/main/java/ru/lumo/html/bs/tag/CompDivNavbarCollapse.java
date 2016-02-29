@@ -8,23 +8,22 @@ package ru.lumo.html.bs.tag;
 import java.util.List;
 import ru.lumo.html.util.ItemUtils;
 
-import javax.inject.Inject;
-
 /**
  *
  * @author misha
  */
 public class CompDivNavbarCollapse extends BsDiv {
 
-    @Inject
     private ItemUtils itemUtils;
 
     public CompDivNavbarCollapse() {
         super(null);
+        itemUtils = new ItemUtils();
     }
 
     public CompDivNavbarCollapse(List<LinkItem> items) {
         super("collapse navbar-collapse");
+        itemUtils = new ItemUtils();
         BsUl ulLeft = new BsUl("nav navbar-nav");
         BsUl ulRight = new BsUl("nav navbar-nav navbar-right");
         boolean hasLeftList = false;

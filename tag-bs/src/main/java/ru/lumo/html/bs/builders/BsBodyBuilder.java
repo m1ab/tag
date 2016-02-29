@@ -38,6 +38,7 @@ public class BsBodyBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P,
 
     @Override
     public void setProducer(P producer) {
+        this.producer = producer;
         navbarBuilder.setProducer(producer);
         breadcrumbBuilder.setProducer(producer);
         contentBuilder.setProducer(producer);

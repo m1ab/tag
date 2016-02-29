@@ -8,23 +8,22 @@ package ru.lumo.html.bs.tag;
 import java.util.List;
 import ru.lumo.html.util.ItemUtils;
 
-import javax.inject.Inject;
-
 /**
  *
  * @author misha
  */
 public class CompLiNavbarDropdown extends BsLi {
 
-    @Inject
     private ItemUtils itemUtils;
 
     public CompLiNavbarDropdown() {
         this(null);
+        itemUtils = new ItemUtils();
     }
     
     public CompLiNavbarDropdown(List<Visibility> visibilities) {
         super("dropdown");
+        itemUtils = new ItemUtils();
         if (visibilities != null && !visibilities.isEmpty()) {
             for (Visibility visibility : visibilities) {
                 addClass(visibility.toString());

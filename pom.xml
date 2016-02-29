@@ -5,9 +5,6 @@
     <artifactId>tag-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>tag-bs</module>
-    </modules>
 
 
     <name>tag-parent</name>
@@ -43,4 +40,14 @@
             </plugin>
         </plugins>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>lumo-releases</id>
+            <url>http://192.168.5.138:8081/nexus/content/repositories/lumo-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>lumo-snapshots</id>
+            <url>http://192.168.5.138:8081/nexus/content/repositories/lumo-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>

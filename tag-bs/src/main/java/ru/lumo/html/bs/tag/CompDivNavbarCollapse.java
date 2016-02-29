@@ -19,6 +19,10 @@ public class CompDivNavbarCollapse extends BsDiv {
     @Inject
     private ItemUtils itemUtils;
 
+    public CompDivNavbarCollapse() {
+        super(null);
+    }
+
     public CompDivNavbarCollapse(List<LinkItem> items) {
         super("collapse navbar-collapse");
         BsUl ulLeft = new BsUl("nav navbar-nav");

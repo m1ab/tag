@@ -36,14 +36,14 @@ public class BsBodyBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P,
     private List<Object> contentList;
     private List<Object> sideList;
 
-//    @Override
-//    public void setProducer(P producer) {
-//        navbarBuilder.setProducer(producer);
-//        breadcrumbBuilder.setProducer(producer);
-//        contentBuilder.setProducer(producer);
-//        footerBuilder.setProducer(producer);
-//        jsBuilder.setProducer(producer);
-//    }
+    @Override
+    public void setProducer(P producer) {
+        navbarBuilder.setProducer(producer);
+        breadcrumbBuilder.setProducer(producer);
+        contentBuilder.setProducer(producer);
+        footerBuilder.setProducer(producer);
+        jsBuilder.setProducer(producer);
+    }
     
     public BsBodyBuilder<P> setMenu(List<LinkItem> items) {
         navbarBuilder.setMenu(items);

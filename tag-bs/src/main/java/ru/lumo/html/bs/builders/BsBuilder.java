@@ -18,12 +18,11 @@ import javax.inject.Inject;
  */
 public abstract class BsBuilder<P extends DefaultBsPageProducer, C> {
 
-    @Inject
     protected P producer;
     
-//    public void setProducer(P producer) {
-//        this.producer = producer;
-//    }
+    public void setProducer(P producer) {
+        this.producer = producer;
+    }
 
     public abstract C build();
     

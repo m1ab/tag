@@ -34,4 +34,11 @@ public class BsTable extends BsTag {
         add(tbody);
     }
 
+    public Thead getThead() {
+        return thead;
+    }
+
+    public Tbody getTbody() {
+        return tbody;
+    }
 }

@@ -29,8 +29,8 @@ public class BsTable extends BsTag {
     public BsTable(Type type) {
         super("table", type.getName());
         thead = new Thead();
-        add(thead);
         tbody = new Tbody();
+        add(thead);
         add(tbody);
     }
 

@@ -21,4 +21,9 @@ public class Td extends Tag {
         super("td");
         add(s);
     }
+
+    public Td(Tag t) {
+        super("td");
+        add(t);
+    }
 }

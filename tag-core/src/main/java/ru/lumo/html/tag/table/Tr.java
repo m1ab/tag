@@ -4,16 +4,18 @@
  * and open the template in the editor.
  */
 
-package ru.lumo.html.tag;
+package ru.lumo.html.tag.table;
+
+import ru.lumo.html.tag.Tag;
 
 /**
  *
  * @author misha
  */
-public class Thead extends Tag {
+public class Tr extends Tag {
 
-    public Thead() {
-        super("thead");
+    public Tr() {
+        super("tr");
         add("");
     }
 }

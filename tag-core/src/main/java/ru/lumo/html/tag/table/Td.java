@@ -4,21 +4,28 @@
  * and open the template in the editor.
  */
 
-package ru.lumo.html.tag;
+package ru.lumo.html.tag.table;
+
+import ru.lumo.html.tag.Tag;
 
 /**
  *
  * @author misha
  */
-public class Th extends Tag {
+public class Td extends Tag {
 
-    public Th() {
-        super("th");
+    public Td() {
+        super("td");
         add("");
     }
 
-    public Th(String s) {
-        super("th");
+    public Td(String s) {
+        super("td");
         add(s);
+    }
+
+    public Td(Tag t) {
+        super("td");
+        add(t);
     }
 }

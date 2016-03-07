@@ -3,16 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ru.lumo.html.tag;
+
+package ru.lumo.html.tag.table;
+
+import ru.lumo.html.tag.Tag;
 
 /**
  *
  * @author misha
  */
-public class Button extends Tag {
+public class Th extends Tag {
 
-    public Button() {
-        super("button");
+    public Th() {
+        super("th");
+        add("");
     }
-    
+
+    public Th(String s) {
+        super("th");
+        add(s);
+    }
 }

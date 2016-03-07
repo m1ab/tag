@@ -3,17 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package ru.lumo.html.tag.form;
 
-package ru.lumo.html.tag;
+import ru.lumo.html.tag.Tag;
 
 /**
  *
  * @author misha
  */
-public class Tr extends Tag {
+public class Button extends Tag {
 
-    public Tr() {
-        super("tr");
-        add("");
+    public Button() {
+        super("button");
     }
+    
 }

@@ -1,7 +1,7 @@
 package ru.lumo.html.bs.tag;
 
-import ru.lumo.html.tag.Tbody;
-import ru.lumo.html.tag.Thead;
+import ru.lumo.html.tag.table.Tbody;
+import ru.lumo.html.tag.table.Thead;
 
 /**
  * Created by misha on 03.03.16.

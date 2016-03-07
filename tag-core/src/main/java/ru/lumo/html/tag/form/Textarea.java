@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 
-package ru.lumo.html.tag;
+package ru.lumo.html.tag.form;
+
+import ru.lumo.html.tag.Tag;
 
 /**
  *

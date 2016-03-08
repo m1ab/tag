@@ -11,8 +11,10 @@ package ru.lumo.html.bs.tag;
  */
 public class BsLabel extends BsTag {
 
-    public BsLabel(String id, String text) {
-        this("control-label", id, text);
+    public final static String CONTROL_LABEL_CLASS="control-label";
+
+    public BsLabel(String tagClass, String id) {
+        this(tagClass, id, "");
     }
 
     public BsLabel(String tagClass, String id, String text) {
@@ -20,5 +22,4 @@ public class BsLabel extends BsTag {
         putAttribute("for", id);
         add(text);
     }
-
 }

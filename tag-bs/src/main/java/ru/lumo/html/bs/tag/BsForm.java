@@ -7,7 +7,7 @@ public class BsForm extends BsTag {
 
     public enum Type {
         FORM_INLINE,
-        FORM_HORISONTAL
+        FORM_HORIZONTAL
     }
 
     public BsForm() {

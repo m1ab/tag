@@ -9,16 +9,10 @@ package ru.lumo.html.bs.tag;
  *
  * @author misha
  */
-public class CompLiDivider extends BsLi {
+public class BsDivFormGroup extends BsDiv {
 
-    public CompLiDivider() {
-        this(false);
-    }
-
-    public CompLiDivider(boolean role) {
-        super("divider");
-        if(role) putAttribute("role", "separator");
-        add("");
+    public BsDivFormGroup() {
+        super("form-group");
     }
     
 }

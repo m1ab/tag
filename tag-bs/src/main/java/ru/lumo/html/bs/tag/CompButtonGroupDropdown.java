@@ -5,7 +5,6 @@
  */
 package ru.lumo.html.bs.tag;
 
-import ru.lumo.html.bs.tag.*;
 import ru.lumo.html.util.ItemUtils;
 
 import java.util.List;
@@ -14,7 +13,7 @@ import java.util.List;
  *
  * @author misha
  */
-public class CompButtonDropdown extends BsDiv {
+public class CompButtonGroupDropdown extends BsDiv {
 
     private ItemUtils itemUtils;
     private String id;
@@ -22,13 +21,14 @@ public class CompButtonDropdown extends BsDiv {
     private String hasPopup = "true";
     private StyleButton styleButton = StyleButton.DEFAULT;
 
-    public CompButtonDropdown(String id) {
+    public CompButtonGroupDropdown(String id) {
         this(id, null);
         itemUtils = new ItemUtils();
     }
 
-    public CompButtonDropdown(String id, List<Visibility> visibilities) {
-        super("dropdown");
+    public CompButtonGroupDropdown(String id, List<Visibility> visibilities) {
+        super("btn-group");
+        putAttribute("role", "group");
         this.id = id;
         itemUtils = new ItemUtils();
         if (visibilities != null && !visibilities.isEmpty()) {

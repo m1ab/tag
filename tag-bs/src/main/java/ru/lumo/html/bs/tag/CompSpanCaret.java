@@ -7,5 +7,6 @@ public class CompSpanCaret extends BsSpan {
 
     public CompSpanCaret() {
         super("caret");
+        add("");
     }
 }

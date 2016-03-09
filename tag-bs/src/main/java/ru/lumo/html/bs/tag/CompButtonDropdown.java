@@ -37,12 +37,20 @@ public class CompButtonDropdown extends BsDiv {
     }
     
     public void setDropdownName(String name) {
+        setDropdownName(name, StyleButton.DEFAULT);
+    }
+
+    public void setDropdownName(String name, StyleButton style) {
+        setDropdownName(name, "true", "true", style);
+    }
+
+    public void setDropdownName(String name, String hasPopup, String expanded, StyleButton style) {
         BsButton button = new BsButton(BsButton.Type.BUTTON, "dropdown-toggle");
-        button.addClass(StyleButton.DEFAULT.getName());
+        button.addClass(style.getName());
         button.putAttribute("id", id);
         button.putAttribute("data-toggle", "dropdown");
-        button.putAttribute("aria-haspopup", "true");
-        button.putAttribute("aria-expanded", "true");
+        button.putAttribute("aria-haspopup", hasPopup);
+        button.putAttribute("aria-expanded", expanded);
         button.add(name == null ? "" : name);
         button.add(" ");
         button.add(new CompSpanCaret());

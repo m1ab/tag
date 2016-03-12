@@ -10,19 +10,19 @@ package ru.lumo.html.tag;
  *
  * @author misha
  */
-public class Em extends Tag {
-    
-    public Em() {
-        super("em");
+public class Pre extends Tag {
+
+    public Pre() {
+        super("pre");
     }
 
-    public Em(String s) {
-        super("em");
+    public Pre(String s) {
+        this();
         add(s);
     }
 
-    public Em(Tag tag) {
-        super("em");
-        add(tag);
+    public Pre(Tag t) {
+        this();
+        add(t);
     }
 }

@@ -11,14 +11,24 @@ package ru.lumo.html.bs.tag;
  */
 public class BsAListGroupItem extends BsA {
 
-    public BsAListGroupItem(StyleListGroupItem style, 
-            String link, String name) {
+
+    public BsAListGroupItem(StyleListGroupItem style, String link, String name, String target) {
+        super(style.getStyle(), link, target);
+        add(name);
+
+    }
+
+    public BsAListGroupItem(StyleListGroupItem style, String link, String name) {
         super(style.getStyle(), link);
         add(name);
     }
 
     public BsAListGroupItem(String link, String name) {
         this(StyleListGroupItem.DEFAULT, link, name);
+    }
+
+    public BsAListGroupItem(String link, String name, String target) {
+        this(StyleListGroupItem.DEFAULT, link, name, target);
     }
 
     public void setStatus(Status status) {

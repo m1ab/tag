@@ -19,10 +19,21 @@ public class CompDivListGroup extends BsDivListGroup {
         addItem(null, link, name);
     }
 
+    public void addTargetedItem(String link, String name, String target) {
+        addTargetedItem(null, link, name, target);
+    }
+
     public void addItem(StyleListGroupItem style, String link, String name) {
         BsAListGroupItem a = style == null
                 ? new BsAListGroupItem(link, name)
                 : new BsAListGroupItem(style, link, name);
+        add(a);
+    }
+
+    public void addTargetedItem(StyleListGroupItem style, String link, String name, String target) {
+        BsAListGroupItem a = style == null
+                ? new BsAListGroupItem(link, name, target)
+                : new BsAListGroupItem(style, link, name, target);
         add(a);
     }
 

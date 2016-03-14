@@ -10,10 +10,6 @@ package ru.lumo.html.bs.tag;
  * @author misha
  */
 public class BsA extends BsTag {
-
-//    public BsA() {
-//        this(null, null);
-//    }
     
     public BsA(String tagClass) {
         this(tagClass, null);
@@ -22,6 +18,11 @@ public class BsA extends BsTag {
     public BsA(String tagClass, String link) {
         super("a", tagClass);
         putAttribute("href", link == null ? "#" : link);
+    }
+
+    public BsA(String tagClass, String link, String target) {
+        this(tagClass, link);
+        if (target != null) putAttribute("target", target);
     }
     
 }

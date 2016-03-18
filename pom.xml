@@ -44,7 +44,7 @@
         </snapshotRepository>
         <!--<snapshotRepository>-->
             <!--<id>common-snapshots</id>-->
-            <!--<url>http://team.proton.local/nexus/content/repositories/common-snapshots</url>-->
+            <!--<url>http://team/nexus/content/repositories/common-snapshots</url>-->
         <!--</snapshotRepository>-->
     </distributionManagement>
 

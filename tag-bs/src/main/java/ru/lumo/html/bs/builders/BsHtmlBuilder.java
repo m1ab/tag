@@ -6,6 +6,8 @@
 package ru.lumo.html.bs.builders;
 
 import java.util.List;
+
+import ru.lumo.html.bs.tag.BsForm;
 import ru.lumo.html.bs.tag.LinkItem;
 import ru.lumo.html.producers.DefaultBsPageProducer;
 import ru.lumo.html.tag.Html;
@@ -29,9 +31,15 @@ public class BsHtmlBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P,
     private List<Object> contentList;
     private List<Object> sideList;
     private List<String> counters;
+    private BsForm form;
 
     public BsHtmlBuilder<P> setItems(List<LinkItem> items) {
         this.items = items;
+        return this;
+    }
+
+    public BsHtmlBuilder<P> setMenuForm(BsForm form) {
+        this.form = form;
         return this;
     }
 
@@ -67,6 +75,7 @@ public class BsHtmlBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P,
         html.add(headBuilder.build());
         html.add(bodyBuilder
                 .setMenu(items)
+                .setMenuForm(form)
                 .setCounters(counters)
                 .setItems(breadcrumb)
                 .setContentList(contentList)

@@ -6,6 +6,8 @@
 package ru.lumo.html.bs.builders;
 
 import java.util.List;
+
+import ru.lumo.html.bs.tag.BsForm;
 import ru.lumo.html.bs.tag.LinkItem;
 import ru.lumo.html.producers.DefaultBsPageProducer;
 import ru.lumo.html.tag.Body;
@@ -48,6 +50,11 @@ public class BsBodyBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P,
     
     public BsBodyBuilder<P> setMenu(List<LinkItem> items) {
         navbarBuilder.setMenu(items);
+        return this;
+    }
+
+    public BsBodyBuilder<P> setMenuForm(BsForm form) {
+        navbarBuilder.setForm(form);
         return this;
     }
     

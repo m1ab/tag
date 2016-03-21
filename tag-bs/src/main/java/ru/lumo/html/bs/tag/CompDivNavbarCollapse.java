@@ -6,6 +6,9 @@
 package ru.lumo.html.bs.tag;
 
 import java.util.List;
+
+import ru.lumo.html.tag.form.Input;
+import ru.lumo.html.tag.form.Verb;
 import ru.lumo.html.util.ItemUtils;
 
 /**
@@ -40,7 +43,12 @@ public class CompDivNavbarCollapse extends BsDiv {
         if (hasLeftList) add(ulLeft);
         if (hasRightList) add(ulRight);
     }
-    
+
+    public CompDivNavbarCollapse(List<LinkItem> items, BsForm form) {
+        this(items);
+        if (form != null) add(form);
+    }
+
     private void addItem(BsUl ul, LinkItem item) {
         if (item.hasChilds()) {
             CompLiNavbarDropdown dropdown = 

@@ -13,6 +13,7 @@ public class BsInput extends BsTag {
 
     public enum Type {
         TEXT,
+        PASSWORD,
         COLOR,          //	Виджет для выбора цвета.
         DATE,           //	Поле для выбора календарной даты.
         DATETIME,       //	Указание даты и времени.

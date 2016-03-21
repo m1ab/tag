@@ -6,11 +6,8 @@
 package ru.lumo.html.bs.builders;
 
 import java.util.List;
-import ru.lumo.html.bs.tag.BsDivContainer;
-import ru.lumo.html.bs.tag.CompDivNavbarHeader;
-import ru.lumo.html.bs.tag.BsNav;
-import ru.lumo.html.bs.tag.CompDivNavbarCollapse;
-import ru.lumo.html.bs.tag.LinkItem;
+
+import ru.lumo.html.bs.tag.*;
 import ru.lumo.html.producers.DefaultBsPageProducer;
 
 import javax.inject.Inject;
@@ -33,6 +30,7 @@ public class BsNavbarBuilder<P extends DefaultBsPageProducer> extends BsBuilder<
     private List<LinkItem> items;
     private BsNav.View view;
     private BsNav.Type type;
+    private BsForm form;
 
     public BsNavbarBuilder<P> setMenu(List<LinkItem> items) {
         this.items = items;
@@ -49,6 +47,11 @@ public class BsNavbarBuilder<P extends DefaultBsPageProducer> extends BsBuilder<
         return this;
     }
 
+    public BsNavbarBuilder<P> setForm(BsForm form) {
+        this.form = form;
+        return this;
+    }
+
     public BsNav build() {
         BsNav nav = new BsNav(view, type);
         BsDivContainer container = new BsDivContainer(CONTAINER);
@@ -59,7 +62,7 @@ public class BsNavbarBuilder<P extends DefaultBsPageProducer> extends BsBuilder<
         container.add(header);
         
         container.add("<!-- Collect the nav links, forms, and other content for toggling -->");
-        CompDivNavbarCollapse collapse = new CompDivNavbarCollapse(items);
+        CompDivNavbarCollapse collapse = new CompDivNavbarCollapse(items, form);
         container.add(collapse);
         
         nav.add(container);

@@ -16,7 +16,7 @@ public class CompDivNavbarHeader extends BsDiv {
         super("navbar-header");
         BsButton button = new BsButton(BUTTON, "navbar-toggle");
         button.putAttribute("data-toggle", "collapse");
-        button.putAttribute("data-target", ".navbar-collapse");
+        button.putAttribute("data-target", "navbar-collapse");
         BsSpan span = new BsSpan("sr-only");
         span.add("Toggle navigation");
         button.add(span);

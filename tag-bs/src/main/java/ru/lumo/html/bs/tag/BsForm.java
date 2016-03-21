@@ -12,6 +12,17 @@ public class BsForm extends BsTag {
         FORM_HORIZONTAL
     }
 
+    public enum Orientation {
+        RIGHT,
+        LEFT
+    }
+
+    public BsForm(String action, Verb method, Orientation orientation) {
+        super("form", String.format("navbar-form%s", Orientation.RIGHT.equals(orientation) ? " navbar-right" : ""));
+        putAttribute("action", action);
+        putAttribute("method", method.name());
+    }
+
     public BsForm(String action, Verb method) {
         this(null, action, method);
     }

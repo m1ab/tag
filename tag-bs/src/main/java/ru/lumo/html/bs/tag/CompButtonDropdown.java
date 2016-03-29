@@ -39,6 +39,9 @@ public class CompButtonDropdown extends BsDiv {
         }
         add("");
     }
+    public void setDisabled(boolean disabled) {
+        this.disabled = disabled;
+    }
 
     public void setExpanded(String expanded) {
         this.expanded = expanded;

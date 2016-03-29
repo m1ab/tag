@@ -21,6 +21,7 @@ public class CompButtonDropdown extends BsDiv {
     private String expanded = "true";
     private String hasPopup = "true";
     private StyleButton styleButton = StyleButton.DEFAULT;
+    private boolean disabled = false;
 
     public CompButtonDropdown(String id) {
         this(id, null);
@@ -61,6 +62,7 @@ public class CompButtonDropdown extends BsDiv {
         button.add(name == null ? "" : name);
         button.add(" ");
         button.add(new CompSpanCaret());
+        if (disabled) button.addClass("disabled");
         add(button);
     }
 

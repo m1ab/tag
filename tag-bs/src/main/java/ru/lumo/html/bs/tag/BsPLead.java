@@ -14,7 +14,7 @@ import ru.lumo.html.tag.Tag;
 public class BsPLead extends BsP {
 
     public BsPLead() {
-        super("p", "lead");
+        super("lead");
     }
 
     public BsPLead(String s) {

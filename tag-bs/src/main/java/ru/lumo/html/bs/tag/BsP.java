@@ -5,6 +5,8 @@
  */
 package ru.lumo.html.bs.tag;
 
+import ru.lumo.html.tag.Tag;
+
 /**
  *
  * @author misha
@@ -18,5 +20,10 @@ public class BsP extends BsTag {
     public BsP(String tagClass, String s) {
         super("p", tagClass);
         add(s);
+    }
+
+    public BsP(String tagClass, Tag tag) {
+        super("p", tagClass);
+        add(tag);
     }
 }

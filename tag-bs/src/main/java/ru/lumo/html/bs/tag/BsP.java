@@ -14,5 +14,9 @@ public class BsP extends BsTag {
     public BsP(String tagClass) {
         super("p", tagClass);
     }
-    
+
+    public BsP(String tagClass, String s) {
+        super("p", tagClass);
+        add(s);
+    }
 }

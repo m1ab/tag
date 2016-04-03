@@ -18,12 +18,12 @@ public class BsP extends BsTag {
     }
 
     public BsP(String tagClass, String s) {
-        super("p", tagClass);
+        this(tagClass);
         add(s);
     }
 
     public BsP(String tagClass, Tag tag) {
-        super("p", tagClass);
+        this(tagClass);
         add(tag);
     }
 }

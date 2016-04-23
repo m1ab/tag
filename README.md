@@ -1,21 +1,20 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+HTML Tags Library
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* HTML Tags Library to build front-end in Java
+* Version 1.0-SNAPSHOT
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Clone and compile it with java 1.8
+* No any extra configuration needed
+* No extra dependencies
+* No datasource configuration
+* Tests are absent
+* No deployment
 
 ### Contribution guidelines ###
 
@@ -25,5 +24,5 @@ This README would normally document whatever steps are necessary to get your app
 
 ### Who do I talk to? ###
 
-* Repo owner or admin
-* Other community or team contact
+* For any question feel free to contact Misha github16@lu-mo.ru
+* My linkedin profile: https://www.linkedin.com/in/mikhail-kryukov-8a2199119

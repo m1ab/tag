@@ -11,13 +11,8 @@ package ru.lumo.html.tag;
  */
 public class U extends Tag {
 
-    public U(String s) {
+    public U(Lit l) {
         super("u");
-        add(s);
-    }
-
-    public U(Tag tag) {
-        super("u");
-        add(tag);
+        add(l);
     }
 }

@@ -5,6 +5,8 @@
  */
 package ru.lumo.html.bs.tag;
 
+import ru.lumo.html.tag.Lit;
+
 import static ru.lumo.html.tag.H.Size;
 import static ru.lumo.html.bs.tag.BsDivPanelInclusion.Type;
 
@@ -27,17 +29,14 @@ public class CompDivPanel extends BsDivPanel {
         super(view);
         if (h) {
             heading = new BsDivPanelInclusion(Type.panel_heading);
-            heading.add("");
             add(heading);
         } else {
             heading = null;
         }
         body = new BsDivPanelInclusion(Type.panel_body);
-        body.add("");
         add(body);
         if (f) {
             footer = new BsDivPanelInclusion(Type.panel_footer);
-            footer.add("");
             add(footer);
         } else {
             footer = null;
@@ -57,6 +56,6 @@ public class CompDivPanel extends BsDivPanel {
     }
 
     public BsH getBsH() {
-        return heading == null ? null : new BsH(Size.h3, "panel-title", "");
+        return heading == null ? null : new BsH(Size.h3, "panel-title", new Lit());
     }
 }

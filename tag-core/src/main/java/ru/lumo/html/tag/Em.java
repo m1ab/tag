@@ -16,13 +16,8 @@ public class Em extends Tag {
         super("em");
     }
 
-    public Em(String s) {
+    public Em(Lit l) {
         super("em");
-        add(s);
-    }
-
-    public Em(Tag tag) {
-        super("em");
-        add(tag);
+        add(l);
     }
 }

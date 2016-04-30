@@ -6,6 +6,7 @@
 
 package ru.lumo.html.tag.table;
 
+import ru.lumo.html.tag.Lit;
 import ru.lumo.html.tag.Tag;
 
 /**
@@ -16,16 +17,11 @@ public class Td extends Tag {
 
     public Td() {
         super("td");
-        add("");
+        add(new Lit());
     }
 
-    public Td(String s) {
+    public Td(Lit l) {
         super("td");
-        add(s);
-    }
-
-    public Td(Tag t) {
-        super("td");
-        add(t);
+        add(l);
     }
 }

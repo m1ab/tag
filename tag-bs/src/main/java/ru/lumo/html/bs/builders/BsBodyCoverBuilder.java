@@ -9,7 +9,7 @@ import ru.lumo.html.bs.tag.BsForm;
 import ru.lumo.html.bs.tag.LinkItem;
 import ru.lumo.html.producers.DefaultBsPageProducer;
 import ru.lumo.html.tag.Body;
-import ru.lumo.html.tag.Script;
+import ru.lumo.html.tag.Lit;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -29,7 +29,7 @@ public class BsBodyCoverBuilder<P extends DefaultBsPageProducer> extends BsBuild
     private BsJsBuilder<P> jsBuilder;
 
     private List<String> counters;
-    private List<Object> contentList;
+    private List<Lit> contentList;
 
     @Override
     public void setProducer(P producer) {
@@ -54,7 +54,7 @@ public class BsBodyCoverBuilder<P extends DefaultBsPageProducer> extends BsBuild
         return this;
     }
 
-    public BsBodyCoverBuilder<P> setContentList(List<Object> contentList) {
+    public BsBodyCoverBuilder<P> setContentList(List<Lit> contentList) {
         this.contentList = contentList;
         return this;
     }
@@ -63,16 +63,10 @@ public class BsBodyCoverBuilder<P extends DefaultBsPageProducer> extends BsBuild
         Body body = new Body();
         body.add(navbarBuilder.buildInverseFixedTopNavbar());
         body.add(contentBuilder.setContentList(contentList).build());
-        //
-        body.add("<!-- Bootstrap core JavaScript ================================================== -->");
-        for (Script script : jsBuilder.build()) {
-            body.add(script);
-        }
-        if (counters != null && !counters.isEmpty()) {
-            for (String counter : counters) {
-                body.add(counter);
-            }
-        }
+        body.add(new Lit("<!-- Bootstrap core JavaScript ================================================== -->"));
+        jsBuilder.build().forEach(script -> body.add(script));
+        if (counters == null || counters.isEmpty()) return body;
+        counters.forEach(counter -> body.add(new Lit(counter)));
         return body;
     }
 }

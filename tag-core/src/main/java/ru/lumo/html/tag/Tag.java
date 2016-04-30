@@ -15,7 +15,7 @@ import java.util.Map;
  *
  * @author misha
  */
-public class Tag {
+public class Tag extends Lit {
     
     private final String name;
     
@@ -23,9 +23,15 @@ public class Tag {
     
     private final List<String> flags = new ArrayList<>();
     
-    private final List<Object> contents = new ArrayList<>();
-    
+    private final List<Lit> lits = new ArrayList<>();
+
     public Tag(String name) {
+        super();
+        this.name = name;
+    }
+
+    protected Tag(String name, int capacity) {
+        super("", capacity);
         this.name = name;
     }
     
@@ -43,32 +49,20 @@ public class Tag {
         flags.add(flag);
     }
     
-    public void add(Tag tag) {
-        contents.add(tag);
-    }
-    
-    public void add(String s) {
-        contents.add(s);
+    public void add(Lit l) {
+        lits.add(l);
     }
     
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("<").append(name);
-        for (String attr : attributes.keySet()) {
-            sb.append(" ").append(attr).append("=\"")
-                    .append(attributes.get(attr)).append("\"");
-        }
-        for (String flag : flags) {
-            sb.append(" ").append(flag);
-        }
+        StringBuilder sb = new StringBuilder().append("<").append(name);
+        attributes.entrySet().forEach(entry -> sb.append(" ")
+                .append(entry.getKey()).append("=\"")
+                .append(entry.getValue()).append("\""));
+        flags.forEach(flag -> sb.append(" ").append(flag));
         sb.append(">");
-        if (!contents.isEmpty()) {
-            for (Object content : contents) {
-                sb.append(content.toString());
-            }
-            sb.append("</").append(name).append(">");
-        }
+        lits.forEach(lit -> sb.append(lit.toString()));
+        sb.append("</").append(name).append(">");
         return sb.toString();
     }
 

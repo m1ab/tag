@@ -12,6 +12,7 @@ import ru.lumo.html.bs.tag.BsUlNav;
 import ru.lumo.html.bs.tag.CompLiNavbarDropdown;
 import ru.lumo.html.bs.tag.LinkItem;
 import ru.lumo.html.producers.DefaultBsPageProducer;
+import ru.lumo.html.tag.Lit;
 
 /**
  *
@@ -35,29 +36,28 @@ public class BsNavBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P, 
     
     public BsUlNav build() {
         BsUlNav nav = new BsUlNav(type);
-        BsLiTab tab; 
-        CompLiNavbarDropdown dropdown;
-        for (LinkItem item : items) {
+        items.forEach(item -> {
             if (item.hasChilds()) {
-                dropdown = new CompLiNavbarDropdown();
+                CompLiNavbarDropdown dropdown = new CompLiNavbarDropdown();
                 dropdown.setDropdownName(item.getName());
                 dropdown.setDropdownMenu(item.getChilds());
                 if (item.isActive()) dropdown.addClass("active");
                 nav.add(dropdown);
             } else {
+                BsLiTab tab;
                 if (item.isActive()) {
-                    tab = new BsLiTab(BsLiTab.Type.ACTIVE);
+                    tab = new BsLiTab(BsLiTab.Type.active);
                 } else if (item.isDisabled()) {
-                    tab = new BsLiTab(BsLiTab.Type.DISABLED);
+                    tab = new BsLiTab(BsLiTab.Type.disabled);
                 } else {
                     tab = new BsLiTab();
                 }
                 BsA a = new BsA(null, item.getLink());
-                a.add(item.getName());
+                a.add(new Lit(item.getName()));
                 tab.add(a);
                 nav.add(tab);
             }
-        }
+        });
         return nav;
     }
     

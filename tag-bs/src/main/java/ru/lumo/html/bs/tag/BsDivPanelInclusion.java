@@ -5,6 +5,8 @@
  */
 package ru.lumo.html.bs.tag;
 
+import ru.lumo.html.tag.Lit;
+
 /**
  *
  * @author misha
@@ -19,6 +21,11 @@ public class BsDivPanelInclusion extends BsDiv {
     
     public BsDivPanelInclusion(Type type) {
         super(type.name().replace("_", "-"));
+        add(new Lit());
     }
 
+    public BsDivPanelInclusion(Type type, Lit l) {
+        super(type.name().replace("_", "-"));
+        add(l);
+    }
 }

@@ -6,6 +6,7 @@
 
 package ru.lumo.html.tag.form;
 
+import ru.lumo.html.tag.Lit;
 import ru.lumo.html.tag.Tag;
 
 /**
@@ -14,15 +15,15 @@ import ru.lumo.html.tag.Tag;
  */
 public class Label extends Tag {
     
-    public Label(String text) {
+    public Label(Lit l) {
         super("label");
-        add(text);
+        add(l);
     }
     
-    public Label(String text, String id) {
+    public Label(Lit l, String id) {
         super("label");
         putAttribute("for", id);
-        add(text);
+        add(l);
     }
 
 }

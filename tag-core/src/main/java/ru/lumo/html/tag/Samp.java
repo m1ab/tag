@@ -11,13 +11,8 @@ package ru.lumo.html.tag;
  */
 public class Samp extends Tag {
 
-    public Samp(String s) {
+    public Samp(Lit l) {
         super("samp");
-        add(s);
-    }
-
-    public Samp(Tag tag) {
-        super("samp");
-        add(tag);
+        add(l);
     }
 }

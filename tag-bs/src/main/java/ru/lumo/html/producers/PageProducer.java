@@ -7,6 +7,8 @@
 package ru.lumo.html.producers;
 
 import java.util.List;
+
+import ru.lumo.html.tag.Lit;
 import ru.lumo.html.util.VerificationEngine;
 
 /**
@@ -20,18 +22,18 @@ public interface PageProducer {
     String getLang();
     
     String getCharset();
-    
+
     String getTitle();
-    
+
     String getDescription();
-    
+
     String getKeywords();
-    
+
     String getFavicon();
-    
+
     String getVerification(VerificationEngine engine);
-    
-    String getCopyright();
+
+    Lit getCopyright();
     
     List<String> getCssLinks();
     

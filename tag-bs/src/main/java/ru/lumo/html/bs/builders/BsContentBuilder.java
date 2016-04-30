@@ -13,7 +13,7 @@ import ru.lumo.html.bs.tag.BsDivTemplate;
 import ru.lumo.html.bs.tag.CompDivContent;
 import ru.lumo.html.bs.tag.Grid;
 import ru.lumo.html.producers.DefaultBsPageProducer;
-import ru.lumo.html.tag.Tag;
+import ru.lumo.html.tag.Lit;
 import static ru.lumo.html.bs.tag.Grid.Screen;
 import static ru.lumo.html.bs.tag.Grid.Size;
 /**
@@ -23,15 +23,15 @@ import static ru.lumo.html.bs.tag.Grid.Size;
  */
 public class BsContentBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P, CompDivContent> {
 
-    private List<Object> contentList;
-    private List<Object> sideList;
+    private List<Lit> contentList;
+    private List<Lit> sideList;
 
-    public BsContentBuilder<P> setContentList(List<Object> contentList) {
+    public BsContentBuilder<P> setContentList(List<Lit> contentList) {
         this.contentList = contentList;
         return this;
     }
 
-    public BsContentBuilder<P>  setSideList(List<Object> sideList) {
+    public BsContentBuilder<P>  setSideList(List<Lit> sideList) {
         this.sideList = sideList;
         return this;
     }
@@ -43,30 +43,20 @@ public class BsContentBuilder<P extends DefaultBsPageProducer> extends BsBuilder
             return container;
         }
         BsDivTemplate template = container.getTemplate();
-        for (Object obj : contentList) {
-            if (obj instanceof String) template.add((String)obj);
-            if (obj instanceof Tag) template.add((Tag)obj);
-        }
+        contentList.forEach(lit -> template.add(lit));
         return container;
     }
     
-    private BsDivRow makeRow(List<Object> contentList, List<Object> sideList) {
+    private BsDivRow makeRow(List<Lit> contentList, List<Lit> sideList) {
         BsDivRow row = new BsDivRow();
-        if (contentList != null) {
-            row.add(makeCol(contentList, makeMainGrid()));
-        }
-        if (sideList != null) {
-            row.add(makeCol(sideList, makeSideGrid()));
-        }
+        if (contentList != null) row.add(makeCol(contentList, makeMainGrid()));
+        if (sideList != null) row.add(makeCol(sideList, makeSideGrid()));
         return row;
     }
     
-    private BsDivCol makeCol(List<Object> list, List<Grid> grid) {
+    private BsDivCol makeCol(List<Lit> lits, List<Grid> grid) {
         BsDivCol col = new BsDivCol(null, grid);
-        for (Object obj : list) {
-            if (obj instanceof String) col.add((String)obj);
-            if (obj instanceof Tag) col.add((Tag)obj);
-        }
+        lits.forEach(lit -> col.add(lit));
         return col;
     }
     

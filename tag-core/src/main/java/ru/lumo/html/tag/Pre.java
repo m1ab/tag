@@ -16,13 +16,8 @@ public class Pre extends Tag {
         super("pre");
     }
 
-    public Pre(String s) {
+    public Pre(Lit l) {
         this();
-        add(s);
-    }
-
-    public Pre(Tag t) {
-        this();
-        add(t);
+        add(l);
     }
 }

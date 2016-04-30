@@ -5,6 +5,8 @@
  */
 package ru.lumo.html.bs.tag;
 
+import ru.lumo.html.tag.Lit;
+
 /**
  *
  * @author misha
@@ -14,9 +16,9 @@ public class CompDivContent extends BsDivContainer {
     BsDivTemplate template;
     
     public CompDivContent() {
-        super(BsDivContainer.View.CONTAINER);
+        super(View.container);
         template = new BsDivTemplate();
-        template.add("");
+        template.add(new Lit());
         add(template);
     }
     

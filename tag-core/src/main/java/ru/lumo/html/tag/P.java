@@ -16,9 +16,9 @@ public class P extends Tag {
         super("p");
     }
     
-    public P(String s) {
+    public P(Lit l) {
         this();
-        add(s);
+        add(l);
     }
     
     public P(Tag t) {

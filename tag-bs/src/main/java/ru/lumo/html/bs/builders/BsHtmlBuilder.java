@@ -11,6 +11,7 @@ import ru.lumo.html.bs.tag.BsForm;
 import ru.lumo.html.bs.tag.LinkItem;
 import ru.lumo.html.producers.DefaultBsPageProducer;
 import ru.lumo.html.tag.Html;
+import ru.lumo.html.tag.Lit;
 
 import javax.inject.Inject;
 
@@ -28,8 +29,8 @@ public class BsHtmlBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P,
 
     private List<LinkItem> items;
     private List<LinkItem> breadcrumb;
-    private List<Object> contentList;
-    private List<Object> sideList;
+    private List<Lit> contentList;
+    private List<Lit> sideList;
     private List<String> counters;
     private BsForm form;
 
@@ -48,12 +49,12 @@ public class BsHtmlBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P,
         return this;
     }
 
-    public BsHtmlBuilder<P> setContentList(List<Object> contentList) {
+    public BsHtmlBuilder<P> setContentList(List<Lit> contentList) {
         this.contentList = contentList;
         return this;
     }
 
-    public BsHtmlBuilder<P> setSideList(List<Object> sideList) {
+    public BsHtmlBuilder<P> setSideList(List<Lit> sideList) {
         this.sideList = sideList;
         return this;
     }

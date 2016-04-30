@@ -8,6 +8,7 @@ package ru.lumo.html.bs.builders;
 import java.util.ArrayList;
 import java.util.List;
 import ru.lumo.html.producers.DefaultBsPageProducer;
+import ru.lumo.html.tag.Lit;
 import ru.lumo.html.tag.Script;
 
 /**
@@ -21,7 +22,7 @@ public class BsJsBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P, L
         List<Script> scripts = new ArrayList<>();
         for (String link : producer.getBsCoreJavascriptLinks()) {
             Script script = new Script(link);
-            script.add("");
+            script.add(new Lit());
             scripts.add(script);
         }
         return scripts;

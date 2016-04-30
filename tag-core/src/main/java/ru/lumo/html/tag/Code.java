@@ -16,8 +16,8 @@ public class Code extends Tag {
         super("code");
     }
     
-    public Code(String s) {
+    public Code(Lit l) {
         this();
-        add(s);
+        add(l);
     }
 }

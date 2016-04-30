@@ -9,13 +9,14 @@ import java.util.List;
 
 import ru.lumo.html.bs.tag.*;
 import ru.lumo.html.producers.DefaultBsPageProducer;
+import ru.lumo.html.tag.Lit;
 
 import javax.inject.Inject;
 
-import static ru.lumo.html.bs.tag.BsDivContainer.View.CONTAINER;
-import static ru.lumo.html.bs.tag.BsNav.Type.FIXED_TOP;
-import static ru.lumo.html.bs.tag.BsNav.View.DEFAULT;
-import static ru.lumo.html.bs.tag.BsNav.View.INVERSE;
+import static ru.lumo.html.bs.tag.BsDivContainer.View.container;
+import static ru.lumo.html.bs.tag.BsNav.Type.navbar_fixed_top;
+import static ru.lumo.html.bs.tag.BsNav.View.navbar_default;
+import static ru.lumo.html.bs.tag.BsNav.View.navbar_inverse;
 
 /**
  *
@@ -54,26 +55,26 @@ public class BsNavbarBuilder<P extends DefaultBsPageProducer> extends BsBuilder<
 
     public BsNav build() {
         BsNav nav = new BsNav(view, type);
-        BsDivContainer container = new BsDivContainer(CONTAINER);
-        container.add("<!-- Brand and toggle get grouped for better mobile display -->");
+        BsDivContainer div = new BsDivContainer(container);
+        div.add(new Lit("<!-- Brand and toggle get grouped for better mobile display -->"));
         CompDivNavbarHeader header = new CompDivNavbarHeader();
         header.addBrand(producer.getBrand(), 
                 producer.getBrandTitle(), producer.getBrandLink());
-        container.add(header);
+        div.add(header);
         
-        container.add("<!-- Collect the nav links, forms, and other content for toggling -->");
+        div.add(new Lit("<!-- Collect the nav links, forms, and other content for toggling -->"));
         CompDivNavbarCollapse collapse = new CompDivNavbarCollapse(items, form);
-        container.add(collapse);
+        div.add(collapse);
         
-        nav.add(container);
+        nav.add(div);
         return nav;
     }
     
     public BsNav buildDefaultFixedTopNavbar() {
-        return setView(DEFAULT).setType(FIXED_TOP).build();
+        return setView(navbar_default).setType(navbar_fixed_top).build();
     }
     
     public BsNav buildInverseFixedTopNavbar() {
-        return setView(INVERSE).setType(FIXED_TOP).build();
+        return setView(navbar_inverse).setType(navbar_fixed_top).build();
     }
 }

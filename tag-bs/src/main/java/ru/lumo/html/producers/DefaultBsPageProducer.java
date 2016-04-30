@@ -6,6 +6,8 @@
 
 package ru.lumo.html.producers;
 
+import ru.lumo.html.tag.Lit;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,15 +36,15 @@ public abstract class DefaultBsPageProducer extends DefaultPageProducer implemen
     }
 
     @Override
-    public String getDebugHeadData() {
-        return ""
+    public Lit getDebugHeadData() {
+        return new Lit(""
             + "        <!-- Just for debugging purposes. Don't actually copy this line! -->\n"
             + "        <!--[if lt IE 9]><script src=\"../../assets/js/ie8-responsive-file-warning.js\"></script><![endif]-->\n"
             + "        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->\n"
             + "        <!--[if lt IE 9]>\n"
             + "          <script src=\"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js\"></script>\n"
             + "          <script src=\"https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js\"></script>\n"
-            + "        <![endif]-->\n";
+            + "        <![endif]-->\n");
     }
 
     @Override

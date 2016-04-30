@@ -16,13 +16,8 @@ public class Small extends Tag {
         super("small");
     }
     
-    public Small(String s) {
+    public Small(Lit l) {
         this();
-        add(s);
-    }
-    
-    public Small(Tag t) {
-        this();
-        add(t);
+        add(l);
     }
 }

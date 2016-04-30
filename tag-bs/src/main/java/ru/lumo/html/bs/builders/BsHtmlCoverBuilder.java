@@ -9,6 +9,7 @@ import ru.lumo.html.bs.tag.BsForm;
 import ru.lumo.html.bs.tag.LinkItem;
 import ru.lumo.html.producers.DefaultBsPageProducer;
 import ru.lumo.html.tag.Html;
+import ru.lumo.html.tag.Lit;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -26,7 +27,7 @@ public class BsHtmlCoverBuilder<P extends DefaultBsPageProducer> extends BsBuild
     private BsBodyCoverBuilder<P> bodyBuilder;
 
     private List<LinkItem> items;
-    private List<Object> contentList;
+    private List<Lit> contentList;
     private List<String> counters;
     private BsForm form;
 
@@ -40,7 +41,7 @@ public class BsHtmlCoverBuilder<P extends DefaultBsPageProducer> extends BsBuild
         return this;
     }
 
-    public BsHtmlCoverBuilder<P> setContentList(List<Object> contentList) {
+    public BsHtmlCoverBuilder<P> setContentList(List<Lit> contentList) {
         this.contentList = contentList;
         return this;
     }

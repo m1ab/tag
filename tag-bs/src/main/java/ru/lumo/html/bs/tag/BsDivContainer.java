@@ -12,19 +12,15 @@ package ru.lumo.html.bs.tag;
 public class BsDivContainer extends BsDiv {
 
     public enum View {
-        CONTAINER("container"),
-        CONTAINER_FLUID("container-fluid");
-        private final String name;
-        View(String name) {
-            this.name = name;
-        }
-        public String getName() {
-            return name;
+        container, container_fluid;
+        @Override
+        public String toString() {
+            return name().replace("_", "-");
         }
     }
     
     public BsDivContainer(View view) {
-        super(view.getName());
+        super(view.toString());
     }
     
 }

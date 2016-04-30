@@ -5,15 +5,17 @@
  */
 package ru.lumo.html.bs.tag;
 
+import ru.lumo.html.tag.Lit;
+
 /**
  *
  * @author misha
  */
 public class CompDivFooter extends BsDivFooter {
     
-    public CompDivFooter(String copyright) {
+    public CompDivFooter(Lit copyright) {
         BsDivContainer container = 
-                new BsDivContainer(BsDivContainer.View.CONTAINER);
+                new BsDivContainer(BsDivContainer.View.container);
         BsP p = new BsP("text-muted");
         p.add(copyright);
         container.add(p);

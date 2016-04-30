@@ -6,10 +6,7 @@
 package ru.lumo.html.bs.builders;
 
 import ru.lumo.html.producers.DefaultBsPageProducer;
-import ru.lumo.html.tag.Head;
-import ru.lumo.html.tag.Link;
-import ru.lumo.html.tag.Meta;
-import ru.lumo.html.tag.Title;
+import ru.lumo.html.tag.*;
 import ru.lumo.html.util.VerificationEngine;
 
 /**
@@ -24,7 +21,7 @@ public class BsHeadBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P,
         head.add(new Meta(producer.getCharset()));
         head.add(new Meta(producer.getHttpEquiv()));
         head.add(new Meta(producer.getViewport()));
-        head.add(new Title(producer.getTitle()));
+        head.add(new Title(new Lit(producer.getTitle())));
         head.add(new Meta(Meta.DESCRIPTION, producer.getDescription()));
         head.add(new Meta(Meta.KEYWORDS, producer.getKeywords()));
         head.add(new Meta(VerificationEngine.VERIFICATION_YANDEX.getName(),

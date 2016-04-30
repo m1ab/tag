@@ -5,6 +5,8 @@
  */
 package ru.lumo.html.bs.tag;
 
+import ru.lumo.html.tag.Lit;
+
 /**
  *
  * @author misha
@@ -13,17 +15,17 @@ public class CompSpanGlyphicon extends BsSpan {
 
     public CompSpanGlyphicon() {
         super("glyphicon");
-        add("");
+        add(new Lit());
     }
     
     
     public CompSpanGlyphicon(String glyphName) {
         super("glyphicon " + glyphName);
-        add("");
+        add(new Lit());
     }
     
     public CompSpanGlyphicon(Glyphicon glyph) {
         super(glyph.toString());
-        add("");
+        add(new Lit());
     }
 }

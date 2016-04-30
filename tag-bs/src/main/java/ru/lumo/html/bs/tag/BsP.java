@@ -5,7 +5,7 @@
  */
 package ru.lumo.html.bs.tag;
 
-import ru.lumo.html.tag.Tag;
+import ru.lumo.html.tag.Lit;
 
 /**
  *
@@ -17,13 +17,8 @@ public class BsP extends BsTag {
         super("p", tagClass);
     }
 
-    public BsP(String tagClass, String s) {
+    public BsP(String tagClass, Lit l) {
         this(tagClass);
-        add(s);
-    }
-
-    public BsP(String tagClass, Tag tag) {
-        this(tagClass);
-        add(tag);
+        add(l);
     }
 }

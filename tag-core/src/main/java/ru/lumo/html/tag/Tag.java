@@ -52,6 +52,10 @@ public class Tag extends Lit {
     public void add(Lit l) {
         lits.add(l);
     }
+
+    public void add(String s) {
+        lits.add(new Lit(s));
+    }
     
     @Override
     public String toString() {

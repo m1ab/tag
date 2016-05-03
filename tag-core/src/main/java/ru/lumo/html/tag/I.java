@@ -15,4 +15,9 @@ public class I extends Tag {
         super("i");
         add(l);
     }
+
+    public I(String s) {
+        super("i");
+        add(s);
+    }
 }

@@ -21,4 +21,9 @@ public class BsP extends BsTag {
         this(tagClass);
         add(l);
     }
+
+    public BsP(String tagClass, String s) {
+        this(tagClass);
+        add(s);
+    }
 }

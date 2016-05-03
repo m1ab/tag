@@ -21,4 +21,9 @@ public class BsPLead extends BsP {
         this();
         add(l);
     }
+
+    public BsPLead(String s) {
+        this();
+        add(s);
+    }
 }

@@ -20,4 +20,9 @@ public class Small extends Tag {
         this();
         add(l);
     }
+
+    public Small(String s) {
+        this();
+        add(s);
+    }
 }

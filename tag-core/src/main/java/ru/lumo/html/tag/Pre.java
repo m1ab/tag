@@ -20,4 +20,9 @@ public class Pre extends Tag {
         this();
         add(l);
     }
+
+    public Pre(String s) {
+        this();
+        add(s);
+    }
 }

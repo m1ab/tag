@@ -28,4 +28,9 @@ public class BsDivPanelInclusion extends BsDiv {
         super(type.name().replace("_", "-"));
         add(l);
     }
+
+    public BsDivPanelInclusion(Type type, String s) {
+        super(type.name().replace("_", "-"));
+        add(s);
+    }
 }

@@ -24,4 +24,9 @@ public class Td extends Tag {
         super("td");
         add(l);
     }
+
+    public Td(String s) {
+        super("td");
+        add(s);
+    }
 }

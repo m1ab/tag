@@ -20,4 +20,9 @@ public class Code extends Tag {
         this();
         add(l);
     }
+
+    public Code(String s) {
+        this();
+        add(s);
+    }
 }

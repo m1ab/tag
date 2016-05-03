@@ -15,4 +15,9 @@ public class Kbd extends Tag {
         super("kbd");
         add(l);
     }
+
+    public Kbd(String s) {
+        super("kbd");
+        add(s);
+    }
 }

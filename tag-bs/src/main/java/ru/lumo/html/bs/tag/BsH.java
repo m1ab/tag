@@ -22,4 +22,9 @@ public class BsH extends BsTag {
         super(size.name(), tagClass);
         add(l);
     }
+
+    public BsH(H.Size size, String tagClass, String s) {
+        super(size.name(), tagClass);
+        add(s);
+    }
 }

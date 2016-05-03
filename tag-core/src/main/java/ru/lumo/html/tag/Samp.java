@@ -15,4 +15,9 @@ public class Samp extends Tag {
         super("samp");
         add(l);
     }
+
+    public Samp(String s) {
+        super("samp");
+        add(s);
+    }
 }

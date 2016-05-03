@@ -29,4 +29,9 @@ public class H extends Tag {
         this(size);
         add(l);
     }
+
+    public H(Size size, String s) {
+        this(size);
+        add(s);
+    }
 }

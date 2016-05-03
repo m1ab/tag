@@ -21,8 +21,8 @@ public class P extends Tag {
         add(l);
     }
     
-    public P(Tag t) {
+    public P(String s) {
         this();
-        add(t);
+        add(s);
     }
 }

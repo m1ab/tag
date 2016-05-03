@@ -15,4 +15,9 @@ public class B extends Tag {
         super("b");
         add(l);
     }
+
+    public B(String s) {
+        super("b");
+        add(s);
+    }
 }

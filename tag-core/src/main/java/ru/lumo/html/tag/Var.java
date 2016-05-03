@@ -15,4 +15,9 @@ public class Var extends Tag {
         super("var");
         add(l);
     }
+
+    public Var(String s) {
+        super("var");
+        add(s);
+    }
 }

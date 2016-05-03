@@ -24,4 +24,10 @@ public class BsLabel extends BsTag {
         putAttribute("for", id);
         add(l);
     }
+
+    public BsLabel(String tagClass, String id, String s) {
+        super("label", tagClass);
+        putAttribute("for", id);
+        add(s);
+    }
 }

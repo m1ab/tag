@@ -20,4 +20,9 @@ public class Em extends Tag {
         super("em");
         add(l);
     }
+
+    public Em(String s) {
+        super("em");
+        add(s);
+    }
 }

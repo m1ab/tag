@@ -18,7 +18,7 @@ public class CompButtonSplitDropdown extends BsDiv {
 
     private ItemUtils itemUtils;
     private String id;
-    private String expanded = "true";
+    private String expanded = "false";
     private String hasPopup = "true";
     private StyleButton styleButton = StyleButton.DEFAULT;
     private boolean disabled = false;
@@ -71,6 +71,7 @@ public class CompButtonSplitDropdown extends BsDiv {
         button.putAttribute("aria-haspopup", hasPopup);
         button.putAttribute("aria-expanded", expanded);
         button.add(new CompSpanCaret());
+        button.add(" ");
         BsSpan span = new BsSpan("sr-only");
         span.add("Toggle Dropdown");
         button.add(span);

@@ -5,25 +5,26 @@
  */
 package ru.lumo.html.bs.builders;
 
-import java.util.List;
-import ru.lumo.html.bs.tag.BsA;
-import ru.lumo.html.bs.tag.BsLiTab;
-import ru.lumo.html.bs.tag.BsUlNav;
-import ru.lumo.html.bs.tag.CompLiNavbarDropdown;
-import ru.lumo.html.bs.tag.LinkItem;
-import ru.lumo.html.producers.DefaultBsPageProducer;
+import ru.lumo.html.bs.tag.*;
+import ru.lumo.html.producers.BsPageProducer;
 import ru.lumo.html.tag.Lit;
+
+import java.util.List;
 
 /**
  *
  * @author misha
  * @param <P>
  */
-public class BsNavBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P, BsUlNav> {
+public class BsNavBuilder<P extends BsPageProducer> extends AbstractBsBuilder<P, BsUlNav> {
 
     private List<LinkItem> items;
     private BsUlNav.Type type;
-    
+
+    public BsNavBuilder(P producer) {
+        super(producer);
+    }
+
     public BsNavBuilder<P> setMenu(List<LinkItem> items) {
         this.items = items;
         return this;
@@ -33,7 +34,8 @@ public class BsNavBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P, 
         this.type = type;
         return this;
     }
-    
+
+    @Override
     public BsUlNav build() {
         BsUlNav nav = new BsUlNav(type);
         items.forEach(item -> {

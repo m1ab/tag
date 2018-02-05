@@ -5,13 +5,12 @@
  */
 package ru.lumo.html.bs.builders;
 
-import java.util.List;
-
 import ru.lumo.html.bs.tag.*;
-import ru.lumo.html.producers.DefaultBsPageProducer;
+import ru.lumo.html.producers.BsPageProducer;
 import ru.lumo.html.tag.Lit;
 
 import javax.inject.Inject;
+import java.util.List;
 
 import static ru.lumo.html.bs.tag.BsDivContainer.View.container;
 import static ru.lumo.html.bs.tag.BsNav.Type.navbar_fixed_top;
@@ -23,15 +22,16 @@ import static ru.lumo.html.bs.tag.BsNav.View.navbar_inverse;
  * @author misha
  * @param <P>
  */
-public class BsNavbarBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P, BsNav> {
-
-    @Inject
-    private CompDivNavbarCollapse collapse;
+public class BsNavbarBuilder<P extends BsPageProducer> extends AbstractBsBuilder<P, BsNav> {
 
     private List<LinkItem> items;
     private BsNav.View view;
     private BsNav.Type type;
     private BsForm form;
+
+    public BsNavbarBuilder(P producer) {
+        super(producer);
+    }
 
     public BsNavbarBuilder<P> setMenu(List<LinkItem> items) {
         this.items = items;
@@ -53,6 +53,7 @@ public class BsNavbarBuilder<P extends DefaultBsPageProducer> extends BsBuilder<
         return this;
     }
 
+    @Override
     public BsNav build() {
         BsNav nav = new BsNav(view, type);
         BsDivContainer div = new BsDivContainer(container);

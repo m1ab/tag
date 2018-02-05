@@ -5,26 +5,23 @@
  */
 package ru.lumo.html.bs.builders;
 
-import java.util.List;
-
 import ru.lumo.html.bs.tag.BsForm;
 import ru.lumo.html.bs.tag.LinkItem;
-import ru.lumo.html.producers.DefaultBsPageProducer;
+import ru.lumo.html.producers.BsPageProducer;
 import ru.lumo.html.tag.Html;
 import ru.lumo.html.tag.Lit;
 
 import javax.inject.Inject;
+import java.util.List;
 
 /**
  *
  * @author misha
  * @param <P>
  */
-public class BsHtmlBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P, Html> {
+public class BsHtmlBuilder<P extends BsPageProducer> extends AbstractBsBuilder<P, Html> {
 
-    @Inject
     private BsHeadBuilder<P> headBuilder;
-    @Inject
     private BsBodyBuilder<P> bodyBuilder;
 
     private List<LinkItem> items;
@@ -33,6 +30,12 @@ public class BsHtmlBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P,
     private List<Lit> sideList;
     private List<String> counters;
     private BsForm form;
+
+    public BsHtmlBuilder(P producer) {
+        super(producer);
+        headBuilder = new BsHeadBuilder<>(producer);
+        bodyBuilder = new BsBodyBuilder<>(producer);
+    }
 
     public BsHtmlBuilder<P> setItems(List<LinkItem> items) {
         this.items = items;
@@ -65,12 +68,6 @@ public class BsHtmlBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P,
     }
 
     @Override
-    public void setProducer(P producer) {
-        this.producer = producer;
-        headBuilder.setProducer(producer);
-        bodyBuilder.setProducer(producer);
-    }
-
     public Html build() {
         Html html = new Html(producer.getLang());
         html.add(headBuilder.build());

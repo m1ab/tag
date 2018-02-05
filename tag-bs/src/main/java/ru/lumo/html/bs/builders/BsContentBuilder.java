@@ -5,15 +5,13 @@
  */
 package ru.lumo.html.bs.builders;
 
+import ru.lumo.html.bs.tag.*;
+import ru.lumo.html.producers.BsPageProducer;
+import ru.lumo.html.tag.Lit;
+
 import java.util.ArrayList;
 import java.util.List;
-import ru.lumo.html.bs.tag.BsDivCol;
-import ru.lumo.html.bs.tag.BsDivRow;
-import ru.lumo.html.bs.tag.BsDivTemplate;
-import ru.lumo.html.bs.tag.CompDivContent;
-import ru.lumo.html.bs.tag.Grid;
-import ru.lumo.html.producers.DefaultBsPageProducer;
-import ru.lumo.html.tag.Lit;
+
 import static ru.lumo.html.bs.tag.Grid.Screen;
 import static ru.lumo.html.bs.tag.Grid.Size;
 /**
@@ -21,10 +19,14 @@ import static ru.lumo.html.bs.tag.Grid.Size;
  * @author misha
  * @param <P>
  */
-public class BsContentBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P, CompDivContent> {
+public class BsContentBuilder<P extends BsPageProducer> extends AbstractBsBuilder<P, CompDivContent> {
 
     private List<Lit> contentList;
     private List<Lit> sideList;
+
+    public BsContentBuilder(P producer) {
+        super(producer);
+    }
 
     public BsContentBuilder<P> setContentList(List<Lit> contentList) {
         this.contentList = contentList;
@@ -36,6 +38,7 @@ public class BsContentBuilder<P extends DefaultBsPageProducer> extends BsBuilder
         return this;
     }
 
+    @Override
     public CompDivContent build() {
         CompDivContent container = new CompDivContent();
         if (sideList != null) {

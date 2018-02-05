@@ -5,19 +5,25 @@
  */
 package ru.lumo.html.bs.builders;
 
-import java.util.ArrayList;
-import java.util.List;
-import ru.lumo.html.producers.DefaultBsPageProducer;
+import ru.lumo.html.producers.BsPageProducer;
 import ru.lumo.html.tag.Lit;
 import ru.lumo.html.tag.Script;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author misha
  * @param <P>
  */
-public class BsJsBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P, List<Script>> {
+public class BsJsBuilder<P extends BsPageProducer> extends AbstractBsBuilder<P, List<Script>> {
 
+    public BsJsBuilder(P producer) {
+        super(producer);
+    }
+
+    @Override
     public List<Script> build() {
         List<Script> scripts = new ArrayList<>();
         for (String link : producer.getBsCoreJavascriptLinks()) {

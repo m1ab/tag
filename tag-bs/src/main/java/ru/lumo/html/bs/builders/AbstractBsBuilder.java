@@ -5,10 +5,7 @@
  */
 package ru.lumo.html.bs.builders;
 
-import ru.lumo.html.bs.tag.BsTag;
-import ru.lumo.html.producers.DefaultBsPageProducer;
-
-import javax.inject.Inject;
+import ru.lumo.html.producers.PageProducer;
 
 
 /**
@@ -16,11 +13,11 @@ import javax.inject.Inject;
  * @author misha
  * @param <P>
  */
-public abstract class BsBuilder<P extends DefaultBsPageProducer, C> {
+public abstract class AbstractBsBuilder<P extends PageProducer, C> {
 
     protected P producer;
-    
-    public void setProducer(P producer) {
+
+    protected AbstractBsBuilder(P producer) {
         this.producer = producer;
     }
 

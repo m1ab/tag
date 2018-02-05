@@ -7,7 +7,7 @@ package ru.lumo.html.bs.builders;
 
 import ru.lumo.html.bs.tag.BsForm;
 import ru.lumo.html.bs.tag.LinkItem;
-import ru.lumo.html.producers.DefaultBsPageProducer;
+import ru.lumo.html.producers.BsPageProducer;
 import ru.lumo.html.tag.Body;
 import ru.lumo.html.tag.Lit;
 
@@ -15,30 +15,25 @@ import javax.inject.Inject;
 import java.util.List;
 
 /**
- *
- * @author misha
  * @param <P>
+ * @author misha
  */
-public class BsBodyCoverBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P, Body> {
+public class BsBodyCoverBuilder<P extends BsPageProducer> extends AbstractBsBuilder<P, Body> {
 
-    @Inject
     private BsNavbarBuilder<P> navbarBuilder;
-    @Inject
     private BsCoverContentBuilder<P> contentBuilder;
-    @Inject
     private BsJsBuilder<P> jsBuilder;
 
     private List<String> counters;
     private List<Lit> contentList;
 
-    @Override
-    public void setProducer(P producer) {
-        this.producer = producer;
-        navbarBuilder.setProducer(producer);
-        contentBuilder.setProducer(producer);
-        jsBuilder.setProducer(producer);
+    public BsBodyCoverBuilder(P producer) {
+        super(producer);
+        navbarBuilder = new BsNavbarBuilder<>(producer);
+        contentBuilder = new BsCoverContentBuilder<>(producer);
+        jsBuilder = new BsJsBuilder<>(producer);
     }
-    
+
     public BsBodyCoverBuilder<P> setMenu(List<LinkItem> items) {
         navbarBuilder.setMenu(items);
         return this;
@@ -48,7 +43,7 @@ public class BsBodyCoverBuilder<P extends DefaultBsPageProducer> extends BsBuild
         navbarBuilder.setForm(form);
         return this;
     }
-    
+
     public BsBodyCoverBuilder<P> setCounters(List<String> counters) {
         this.counters = counters;
         return this;
@@ -59,6 +54,7 @@ public class BsBodyCoverBuilder<P extends DefaultBsPageProducer> extends BsBuild
         return this;
     }
 
+    @Override
     public Body build() {
         Body body = new Body();
         body.add(navbarBuilder.buildInverseFixedTopNavbar());

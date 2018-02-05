@@ -5,10 +5,11 @@
  */
 package ru.lumo.html.bs.builders;
 
-import java.util.List;
 import ru.lumo.html.bs.tag.CompSpanGlyphicon;
 import ru.lumo.html.bs.tag.Glyphicon;
 import ru.lumo.html.bs.tag.Visibility;
+
+import java.util.List;
 
 /**
  *

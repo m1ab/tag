@@ -5,33 +5,25 @@
  */
 package ru.lumo.html.bs.builders;
 
-import java.util.List;
-
 import ru.lumo.html.bs.tag.BsForm;
 import ru.lumo.html.bs.tag.LinkItem;
-import ru.lumo.html.producers.DefaultBsPageProducer;
+import ru.lumo.html.producers.BsPageProducer;
 import ru.lumo.html.tag.Body;
 import ru.lumo.html.tag.Lit;
-import ru.lumo.html.tag.Script;
 
-import javax.inject.Inject;
+import java.util.List;
 
 /**
  *
  * @author misha
  * @param <P>
  */
-public class BsBodyBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P, Body> {
+public class BsBodyBuilder<P extends BsPageProducer> extends AbstractBsBuilder<P, Body> {
 
-    @Inject
     private BsNavbarBuilder<P> navbarBuilder;
-    @Inject
     private BsBreadcrumbBuilder<P> breadcrumbBuilder;
-    @Inject
     private BsContentBuilder<P> contentBuilder;
-    @Inject
     private BsFooterBuilder<P> footerBuilder;
-    @Inject
     private BsJsBuilder<P> jsBuilder;
 
     private List<String> counters;
@@ -39,14 +31,13 @@ public class BsBodyBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P,
     private List<Lit> contentList;
     private List<Lit> sideList;
 
-    @Override
-    public void setProducer(P producer) {
-        this.producer = producer;
-        navbarBuilder.setProducer(producer);
-        breadcrumbBuilder.setProducer(producer);
-        contentBuilder.setProducer(producer);
-        footerBuilder.setProducer(producer);
-        jsBuilder.setProducer(producer);
+    public BsBodyBuilder(P producer) {
+        super(producer);
+        navbarBuilder = new BsNavbarBuilder<>(producer);
+        breadcrumbBuilder = new BsBreadcrumbBuilder<>(producer);
+        contentBuilder = new BsContentBuilder<>(producer);
+        footerBuilder = new BsFooterBuilder<>(producer);
+        jsBuilder = new BsJsBuilder<>(producer);
     }
     
     public BsBodyBuilder<P> setMenu(List<LinkItem> items) {

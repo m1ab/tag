@@ -5,7 +5,7 @@
  */
 package ru.lumo.html.bs.builders;
 
-import ru.lumo.html.producers.DefaultBsPageProducer;
+import ru.lumo.html.producers.BsPageProducer;
 import ru.lumo.html.tag.*;
 import ru.lumo.html.util.VerificationEngine;
 
@@ -14,8 +14,13 @@ import ru.lumo.html.util.VerificationEngine;
  * @author misha
  * @param <P>
  */
-public class BsHeadBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P, Head> {
+public class BsHeadBuilder<P extends BsPageProducer> extends AbstractBsBuilder<P, Head> {
 
+    public BsHeadBuilder(P producer) {
+        super(producer);
+    }
+
+    @Override
     public Head build() {
         Head head = new Head();
         head.add(new Meta(producer.getCharset()));

@@ -5,47 +5,39 @@
  */
 package ru.lumo.html.bs.builders;
 
-import java.util.List;
-
 import ru.lumo.html.bs.tag.BsForm;
 import ru.lumo.html.bs.tag.LinkItem;
-import ru.lumo.html.producers.DefaultBsPageProducer;
+import ru.lumo.html.producers.BsPageProducer;
 import ru.lumo.html.tag.Body;
-import ru.lumo.html.tag.Script;
+import ru.lumo.html.tag.Lit;
 
-import javax.inject.Inject;
+import java.util.List;
 
 /**
  *
  * @author misha
  * @param <P>
  */
-public class BsBodyBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P, Body> {
+public class BsBodyBuilder<P extends BsPageProducer> extends AbstractBsBuilder<P, Body> {
 
-    @Inject
     private BsNavbarBuilder<P> navbarBuilder;
-    @Inject
     private BsBreadcrumbBuilder<P> breadcrumbBuilder;
-    @Inject
     private BsContentBuilder<P> contentBuilder;
-    @Inject
     private BsFooterBuilder<P> footerBuilder;
-    @Inject
     private BsJsBuilder<P> jsBuilder;
 
     private List<String> counters;
     private List<LinkItem> items;
-    private List<Object> contentList;
-    private List<Object> sideList;
+    private List<Lit> contentList;
+    private List<Lit> sideList;
 
-    @Override
-    public void setProducer(P producer) {
-        this.producer = producer;
-        navbarBuilder.setProducer(producer);
-        breadcrumbBuilder.setProducer(producer);
-        contentBuilder.setProducer(producer);
-        footerBuilder.setProducer(producer);
-        jsBuilder.setProducer(producer);
+    public BsBodyBuilder(P producer) {
+        super(producer);
+        navbarBuilder = new BsNavbarBuilder<>(producer);
+        breadcrumbBuilder = new BsBreadcrumbBuilder<>(producer);
+        contentBuilder = new BsContentBuilder<>(producer);
+        footerBuilder = new BsFooterBuilder<>(producer);
+        jsBuilder = new BsJsBuilder<>(producer);
     }
     
     public BsBodyBuilder<P> setMenu(List<LinkItem> items) {
@@ -68,38 +60,31 @@ public class BsBodyBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P,
         return this;
     }
 
-    public BsBodyBuilder<P> setContentList(List<Object> contentList) {
+    public BsBodyBuilder<P> setContentList(List<Lit> contentList) {
         this.contentList = contentList;
         return this;
     }
 
-    public BsBodyBuilder<P> setSideList(List<Object> sideList) {
+    public BsBodyBuilder<P> setSideList(List<Lit> sideList) {
         this.sideList = sideList;
         return this;
     }
 
     public Body build() {
-        if (items != null) {
-            addBreadcrumb(contentList, items);
-        }
+        addBreadcrumb(contentList, items);
         Body body = new Body();
         body.add(navbarBuilder.buildInverseFixedTopNavbar());
         body.add(contentBuilder.setContentList(contentList).setSideList(sideList).build());
         body.add(footerBuilder.build());
-        //
-        body.add("<!-- Bootstrap core JavaScript ================================================== -->");
-        for (Script script : jsBuilder.build()) {
-            body.add(script);
-        }
-        if (counters != null && !counters.isEmpty()) {
-            for (String counter : counters) {
-                body.add(counter);
-            }
-        }
+        body.add(new Lit("<!-- Bootstrap core JavaScript ================================================== -->"));
+        jsBuilder.build().forEach(script -> body.add(script));
+        if (counters == null || counters.isEmpty()) return body;
+        counters.forEach(counter -> body.add(new Lit(counter)));
         return body;
     }
     
-    private void addBreadcrumb(List<Object> contentList, List<LinkItem> items) {
+    private void addBreadcrumb(List<Lit> contentList, List<LinkItem> items) {
+        if (items == null) return;
         contentList.add(0, breadcrumbBuilder.setItems(items).build());
     }
 }

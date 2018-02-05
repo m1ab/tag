@@ -6,6 +6,8 @@
 package ru.lumo.html.bs.tag;
 
 import java.util.List;
+
+import ru.lumo.html.tag.Lit;
 import ru.lumo.html.util.ItemUtils;
 
 /**
@@ -29,14 +31,13 @@ public class CompLiNavbarDropdown extends BsLi {
                 addClass(visibility.toString());
             }
         }
-        add("");
+        add(new Lit());
     }
     
     public void setDropdownName(String name) {
         BsA a = new BsA("dropdown-toggle");
         a.putAttribute("data-toggle", "dropdown");
-        a.add(name == null ? "" : name);
-        a.add(" ");
+        a.add(new Lit(name == null ? "" : name + " "));
         a.add(new CompBCaret());
         add(a);
     }

@@ -25,6 +25,11 @@ public class H extends Tag {
         super(size.name());
     }
     
+    public H(Size size, Lit l) {
+        this(size);
+        add(l);
+    }
+
     public H(Size size, String s) {
         this(size);
         add(s);

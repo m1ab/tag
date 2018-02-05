@@ -16,13 +16,13 @@ public class Em extends Tag {
         super("em");
     }
 
+    public Em(Lit l) {
+        super("em");
+        add(l);
+    }
+
     public Em(String s) {
         super("em");
         add(s);
-    }
-
-    public Em(Tag tag) {
-        super("em");
-        add(tag);
     }
 }

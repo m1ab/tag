@@ -5,6 +5,7 @@
  */
 package ru.lumo.html.bs.tag;
 
+import ru.lumo.html.tag.Lit;
 import ru.lumo.html.util.ItemUtils;
 
 import java.util.List;
@@ -37,7 +38,7 @@ public class CompButtonGroupDropdown extends BsDiv {
                 addClass(visibility.toString());
             }
         }
-        add("");
+        add(new Lit());
     }
 
     public void setDisabled(boolean disabled) {
@@ -63,8 +64,7 @@ public class CompButtonGroupDropdown extends BsDiv {
         button.putAttribute("data-toggle", "dropdown");
         button.putAttribute("aria-haspopup", hasPopup);
         button.putAttribute("aria-expanded", expanded);
-        button.add(name == null ? "" : name);
-        button.add(" ");
+        button.add(new Lit(name == null ? "" : name + " "));
         button.add(new CompSpanCaret());
         if (disabled) button.addClass("disabled");
         add(button);

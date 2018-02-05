@@ -5,39 +5,36 @@
  */
 package ru.lumo.html.bs.builders;
 
-import ru.lumo.html.bs.tag.*;
-import ru.lumo.html.producers.DefaultBsPageProducer;
-import ru.lumo.html.tag.Tag;
+import ru.lumo.html.bs.tag.BsDivCoverContainer;
+import ru.lumo.html.bs.tag.BsDivSiteWrapper;
+import ru.lumo.html.producers.BsPageProducer;
+import ru.lumo.html.tag.Lit;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import static ru.lumo.html.bs.tag.Grid.Screen;
-import static ru.lumo.html.bs.tag.Grid.Size;
 
 /**
  *
  * @author misha
  * @param <P>
  */
-public class BsCoverContentBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P, BsDivSiteWrapper> {
+public class BsCoverContentBuilder<P extends BsPageProducer> extends AbstractBsBuilder<P, BsDivSiteWrapper> {
 
-    private List<Object> contentList;
+    private List<Lit> contentList;
 
-    public BsCoverContentBuilder<P> setContentList(List<Object> contentList) {
+    public BsCoverContentBuilder(P producer) {
+        super(producer);
+    }
+
+    public BsCoverContentBuilder<P> setContentList(List<Lit> contentList) {
         this.contentList = contentList;
         return this;
     }
 
+    @Override
     public BsDivSiteWrapper build() {
         BsDivSiteWrapper siteWrapper = new BsDivSiteWrapper();
         BsDivCoverContainer coverContainer = siteWrapper.getCoverContainer();
-        contentList.forEach(item -> append(coverContainer, item));
+        contentList.forEach(lit -> coverContainer.add(lit));
         return siteWrapper;
-    }
-
-    private void append(BsDivCoverContainer coverContainer, Object item) {
-        if (item instanceof String) coverContainer.add((String)item);
-        if (item instanceof Tag) coverContainer.add((Tag)item);
     }
 }

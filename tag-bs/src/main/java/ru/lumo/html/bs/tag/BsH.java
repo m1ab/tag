@@ -6,6 +6,7 @@
 package ru.lumo.html.bs.tag;
 
 import ru.lumo.html.tag.H;
+import ru.lumo.html.tag.Lit;
 
 /**
  *
@@ -15,9 +16,13 @@ public class BsH extends BsTag {
     
     public BsH(H.Size size, String tagClass) {
         super(size.name(), tagClass);
-        
     }
     
+    public BsH(H.Size size, String tagClass, Lit l) {
+        super(size.name(), tagClass);
+        add(l);
+    }
+
     public BsH(H.Size size, String tagClass, String s) {
         super(size.name(), tagClass);
         add(s);

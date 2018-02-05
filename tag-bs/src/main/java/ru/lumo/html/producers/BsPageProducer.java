@@ -5,6 +5,8 @@
  */
 package ru.lumo.html.producers;
 
+import ru.lumo.html.tag.Lit;
+
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +20,7 @@ public interface BsPageProducer extends PageProducer {
     
     Map<String, String> getHttpEquiv();
     
-    String getDebugHeadData();
+    Lit getDebugHeadData();
     
     List<String> getBsCoreJavascriptLinks();
     
@@ -28,7 +30,7 @@ public interface BsPageProducer extends PageProducer {
     
     String getBrandTitle();
     
-    String getCurrentLink();
+    Lit getCurrentLink();
     
     String getDefaultSection();
 }

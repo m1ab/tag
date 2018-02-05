@@ -12,49 +12,27 @@ package ru.lumo.html.tag;
  */
 public class A extends Tag {
     
-    public enum Scope {
-        HREF("href"),
-        NAME("name");
-        private final String name;
-        Scope(String name) {
-            this.name = name;
-        }
-        public String getName() {
-            return name;
-        }
-    }
+    public enum Scope {href, name}
     
     public A(String link) {
         super("a");
-        putAttribute(Scope.HREF.getName(), link);
+        putAttribute(Scope.href.name(), link);
     }
     
-    public A(String link, String s) {
+    public A(String link, Lit l) {
         super("a");
-        putAttribute(Scope.HREF.getName(), link);
-        add(s);
+        putAttribute(Scope.href.name(), link);
+        add(l);
     }
     
-    public A(String link, Tag t) {
+    public A(Scope scope, String ancor) {
         super("a");
-        putAttribute(Scope.HREF.getName(), link);
-        add(t);
+        putAttribute(scope.name(), ancor);
     }
     
-    public A(Scope scope, String value) {
+    public A(Scope scope, String ancor, Lit l) {
         super("a");
-        putAttribute(scope.getName(), value);
-    }
-    
-    public A(Scope scope, String value, String s) {
-        super("a");
-        putAttribute(scope.getName(), value);
-        add(s);
-    }
-    
-    public A(Scope scope, String value, Tag t) {
-        super("a");
-        putAttribute(scope.getName(), value);
-        add(t);
+        putAttribute(scope.name(), ancor);
+        add(l);
     }
 }

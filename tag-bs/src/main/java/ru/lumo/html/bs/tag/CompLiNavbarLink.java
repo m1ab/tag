@@ -5,6 +5,8 @@
  */
 package ru.lumo.html.bs.tag;
 
+import ru.lumo.html.tag.Lit;
+
 import java.util.List;
 
 /**
@@ -20,7 +22,7 @@ public class CompLiNavbarLink extends BsLi {
     public CompLiNavbarLink(String tagClass, String name, String link) {
         super(tagClass);
         BsA a = new BsA(null, link);
-        a.add(name);
+        a.add(new Lit(name));
         add(a);
     }
 

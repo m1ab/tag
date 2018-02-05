@@ -5,6 +5,8 @@
  */
 package ru.lumo.html.bs.tag;
 
+import ru.lumo.html.tag.Lit;
+
 /**
  *
  * @author misha
@@ -14,13 +16,13 @@ public class BsAListGroupItem extends BsA {
 
     public BsAListGroupItem(StyleListGroupItem style, String link, String name, String target) {
         super(style.getStyle(), link, target);
-        add(name);
+        add(new Lit(name));
 
     }
 
     public BsAListGroupItem(StyleListGroupItem style, String link, String name) {
         super(style.getStyle(), link);
-        add(name);
+        add(new Lit(name));
     }
 
     public BsAListGroupItem(String link, String name) {

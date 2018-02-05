@@ -6,6 +6,7 @@
 
 package ru.lumo.html.tag.table;
 
+import ru.lumo.html.tag.Lit;
 import ru.lumo.html.tag.Tag;
 
 /**
@@ -16,6 +17,6 @@ public class Tbody extends Tag {
 
     public Tbody() {
         super("tbody");
-        add("");
+        add(new Lit());
     }
 }

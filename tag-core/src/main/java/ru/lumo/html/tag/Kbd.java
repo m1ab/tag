@@ -11,13 +11,13 @@ package ru.lumo.html.tag;
  */
 public class Kbd extends Tag {
 
+    public Kbd(Lit l) {
+        super("kbd");
+        add(l);
+    }
+
     public Kbd(String s) {
         super("kbd");
         add(s);
-    }
-
-    public Kbd(Tag tag) {
-        super("kbd");
-        add(tag);
     }
 }

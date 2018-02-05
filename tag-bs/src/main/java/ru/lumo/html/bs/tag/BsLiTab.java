@@ -12,16 +12,7 @@ package ru.lumo.html.bs.tag;
 public class BsLiTab extends BsLi {
 
     public enum Type {
-        ACTIVE("active"),
-        DROPDOWN("dropdown"),
-        DISABLED("disabled");
-        private final String name;
-        Type(String name) {
-            this.name = name;
-        }
-        public String getName() {
-            return name;
-        }
+        active, dropdown, disabled;
     }
 
     public BsLiTab() {
@@ -30,7 +21,7 @@ public class BsLiTab extends BsLi {
     }
     
     public BsLiTab(Type type) {
-        super(type.getName());
+        super(type.name());
         putAttribute("role", "presentation");
     }
     

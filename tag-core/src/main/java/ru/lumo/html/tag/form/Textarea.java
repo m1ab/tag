@@ -6,6 +6,7 @@
 
 package ru.lumo.html.tag.form;
 
+import ru.lumo.html.tag.Lit;
 import ru.lumo.html.tag.Tag;
 
 /**
@@ -17,10 +18,10 @@ public class Textarea extends Tag {
     public Textarea(String name) {
         super("textarea");
         putAttribute("name", name);
-        add("");
+        add(new Lit());
     }
 
-    public Textarea(String name, String value) {
+    public Textarea(String name, Lit value) {
         super("textarea");
         putAttribute("name", name);
         add(value);

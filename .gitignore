@@ -121,3 +121,8 @@ dwsync.xml
 target/
 node_modules/
 rebel.xml
+
+
+# Maven release plugin
+release.properties
+pom.xml.releaseBackup

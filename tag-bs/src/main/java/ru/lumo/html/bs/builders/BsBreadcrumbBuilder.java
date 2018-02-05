@@ -5,21 +5,26 @@
  */
 package ru.lumo.html.bs.builders;
 
-import java.util.List;
 import ru.lumo.html.bs.tag.BsOlBreadcrumb;
 import ru.lumo.html.bs.tag.CompLiLink;
 import ru.lumo.html.bs.tag.LinkItem;
-import ru.lumo.html.producers.DefaultBsPageProducer;
+import ru.lumo.html.producers.BsPageProducer;
+
+import java.util.List;
 
 /**
  *
  * @author misha
  * @param <P>
  */
-public class BsBreadcrumbBuilder<P extends DefaultBsPageProducer> extends BsBuilder<P, BsOlBreadcrumb> {
+public class BsBreadcrumbBuilder<P extends BsPageProducer> extends AbstractBsBuilder<P, BsOlBreadcrumb> {
 
     private String name;
     private List<LinkItem> items;
+
+    public BsBreadcrumbBuilder(P producer) {
+        super(producer);
+    }
 
     public BsBreadcrumbBuilder<P> setName(String name) {
         this.name = name;
@@ -31,6 +36,7 @@ public class BsBreadcrumbBuilder<P extends DefaultBsPageProducer> extends BsBuil
         return this;
     }
 
+    @Override
     public BsOlBreadcrumb build() {
         BsOlBreadcrumb breadcrumb = new BsOlBreadcrumb();
         breadcrumb.add(new CompLiLink(producer.getReturnHomeName(), producer.getBase()));

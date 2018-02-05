@@ -5,7 +5,7 @@
  */
 package ru.lumo.html.bs.tag;
 
-import ru.lumo.html.tag.Tag;
+import ru.lumo.html.tag.Lit;
 
 /**
  *
@@ -17,13 +17,13 @@ public class BsPLead extends BsP {
         super("lead");
     }
 
+    public BsPLead(Lit l) {
+        this();
+        add(l);
+    }
+
     public BsPLead(String s) {
         this();
         add(s);
-    }
-
-    public BsPLead(Tag tag) {
-        this();
-        add(tag);
     }
 }

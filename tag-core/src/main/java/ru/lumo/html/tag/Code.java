@@ -16,6 +16,11 @@ public class Code extends Tag {
         super("code");
     }
     
+    public Code(Lit l) {
+        this();
+        add(l);
+    }
+
     public Code(String s) {
         this();
         add(s);

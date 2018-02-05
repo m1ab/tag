@@ -5,6 +5,8 @@
  */
 package ru.lumo.html.bs.tag;
 
+import ru.lumo.html.tag.Lit;
+
 /**
  *
  * @author misha
@@ -14,12 +16,18 @@ public class BsLabel extends BsTag {
     public final static String CONTROL_LABEL_CLASS="control-label";
 
     public BsLabel(String tagClass, String id) {
-        this(tagClass, id, "");
+        this(tagClass, id, new Lit());
     }
 
-    public BsLabel(String tagClass, String id, String text) {
+    public BsLabel(String tagClass, String id, Lit l) {
         super("label", tagClass);
         putAttribute("for", id);
-        add(text);
+        add(l);
+    }
+
+    public BsLabel(String tagClass, String id, String s) {
+        super("label", tagClass);
+        putAttribute("for", id);
+        add(s);
     }
 }

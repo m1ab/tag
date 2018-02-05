@@ -5,6 +5,8 @@
  */
 package ru.lumo.html.bs.tag;
 
+import ru.lumo.html.tag.Lit;
+
 /**
  *
  * @author misha
@@ -13,7 +15,7 @@ public class CompBCaret extends BsB {
 
     public CompBCaret() {
         super("caret");
-        add("");
+        add(new Lit());
     }
     
 }

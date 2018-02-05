@@ -16,13 +16,13 @@ public class P extends Tag {
         super("p");
     }
     
+    public P(Lit l) {
+        this();
+        add(l);
+    }
+    
     public P(String s) {
         this();
         add(s);
-    }
-    
-    public P(Tag t) {
-        this();
-        add(t);
     }
 }

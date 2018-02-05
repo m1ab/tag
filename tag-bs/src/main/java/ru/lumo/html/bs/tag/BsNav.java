@@ -12,27 +12,18 @@ package ru.lumo.html.bs.tag;
 public class BsNav extends BsTag {
     
     public enum View {
-        DEFAULT("navbar-default"),
-        INVERSE("navbar-inverse");
-        private final String name;
-        View(String name) {
-            this.name = name;
-        }
-        public String getName() {
-            return name;
+        navbar_default, navbar_inverse;
+        @Override
+        public String toString() {
+            return name().replace("_", "-");
         }
     }
 
     public enum Type {
-        FIXED_TOP("navbar-fixed-top"),
-        FIXED_BOTTOM("navbar-fixed-bottom"),
-        STATIC_TOP("navbar-static-top");
-        private final String name;
-        Type(String name) {
-            this.name = name;
-        }
-        public String getName() {
-            return name;
+        navbar_fixed_top, navbar_fixed_bottom, navbar_static_top;
+        @Override
+        public String toString() {
+            return name().replace("_", "-");
         }
     }
     
@@ -41,9 +32,9 @@ public class BsNav extends BsTag {
     }
     
     public BsNav(View view, Type type) {
-        super("nav", (String.format("navbar %s %s",
-                view == null ? "" : view.getName(),
-                type == null ? "" : type.getName())).trim());
+        super("nav", String.format("navbar %s %s",
+                view == null ? "" : view.toString(),
+                type == null ? "" : type.toString()).trim());
         putAttribute("role", "navigation");
     }
 

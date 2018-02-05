@@ -12,7 +12,7 @@ package ru.lumo.html.tag;
  */
 public class Title extends Tag {
     
-    public Title(String title) {
+    public Title(Lit title) {
         super("title");
         add(title);
     }

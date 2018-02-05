@@ -5,7 +5,6 @@
  */
 package ru.lumo.html.bs.tag;
 
-import ru.lumo.html.bs.tag.*;
 import ru.lumo.html.tag.Lit;
 import ru.lumo.html.util.ItemUtils;
 
@@ -15,22 +14,23 @@ import java.util.List;
  *
  * @author misha
  */
-public class CompButtonDropdown extends BsDiv {
+public class CompButtonSplitDropdown extends BsDiv {
 
     private ItemUtils itemUtils;
     private String id;
-    private String expanded = "true";
+    private String expanded = "false";
     private String hasPopup = "true";
     private StyleButton styleButton = StyleButton.DEFAULT;
     private boolean disabled = false;
 
-    public CompButtonDropdown(String id) {
+    public CompButtonSplitDropdown(String id) {
         this(id, null);
         itemUtils = new ItemUtils();
     }
 
-    public CompButtonDropdown(String id, List<Visibility> visibilities) {
-        super("dropdown");
+    public CompButtonSplitDropdown(String id, List<Visibility> visibilities) {
+        super("btn-group");
+        putAttribute("role", "group");
         this.id = id;
         itemUtils = new ItemUtils();
         if (visibilities != null && !visibilities.isEmpty()) {
@@ -40,6 +40,7 @@ public class CompButtonDropdown extends BsDiv {
         }
         add(new Lit());
     }
+
     public void setDisabled(boolean disabled) {
         this.disabled = disabled;
     }
@@ -57,14 +58,23 @@ public class CompButtonDropdown extends BsDiv {
     }
 
     public void setDropdownName(String name) {
-        BsButton button = new BsButton(BsButton.Type.BUTTON, "dropdown-toggle");
+        BsButton button;
+        //
+        button = new BsButton(BsButton.Type.BUTTON, styleButton.getName());
+        button.add(name == null ? "" : name + " ");
+        add(button);
+        //
+        button = new BsButton(BsButton.Type.BUTTON, "dropdown-toggle");
         button.addClass(styleButton.getName());
         button.putAttribute("id", id);
         button.putAttribute("data-toggle", "dropdown");
         button.putAttribute("aria-haspopup", hasPopup);
         button.putAttribute("aria-expanded", expanded);
-        button.add(new Lit(name == null ? "" : name + " "));
         button.add(new CompSpanCaret());
+        button.add(" ");
+        BsSpan span = new BsSpan("sr-only");
+        span.add("Toggle Dropdown");
+        button.add(span);
         if (disabled) button.addClass("disabled");
         add(button);
     }

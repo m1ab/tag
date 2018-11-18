@@ -25,27 +25,14 @@
         <tag>HEAD</tag>
     </scm>
 
-    <!--<distributionManagement>-->
-        <!--<repository>-->
-            <!--<id>lumo-releases</id>-->
-            <!--<url>http://192.168.5.138:8081/nexus/content/repositories/lumo-releases</url>-->
-        <!--</repository>-->
-        <!--<snapshotRepository>-->
-            <!--<id>lumo-snapshots</id>-->
-            <!--<url>http://192.168.5.138:8081/nexus/content/repositories/lumo-snapshots</url>-->
-        <!--</snapshotRepository>-->
-    <!--</distributionManagement>-->
-
     <distributionManagement>
         <repository>
-            <id>third-party-releases</id>
-            <name>third-party-releases</name>
-            <url>http://dev.rbtechnologies.ru:8081/artifactory/third-party</url>
+            <id>lumo-releases</id>
+            <url>http://lu-mo.ru:8084/nexus/content/repositories/lumo-snapshots</url>
         </repository>
         <snapshotRepository>
-            <id>third-party-snapshots</id>
-            <name>third-party-snapshots</name>
-            <url>http://dev.rbtechnologies.ru:8081/artifactory/third-party</url>
+            <id>lumo-snapshots</id>
+            <url>http://lu-mo.ru:8084/nexus/content/repositories/lumo-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 

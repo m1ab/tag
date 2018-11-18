@@ -3,7 +3,7 @@
     <parent>
         <artifactId>tag-parent</artifactId>
         <groupId>ru.lumo.html</groupId>
-        <version>1.4-SNAPSHOT</version>
+        <version>1.4</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -15,7 +15,7 @@
         <dependency>
             <groupId>ru.lumo.html</groupId>
             <artifactId>tag-core</artifactId>
-            <version>1.4-SNAPSHOT</version>
+            <version>1.4</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

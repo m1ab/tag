@@ -1,5 +1,10 @@
 #!/bin/bash
 
-~/apache-maven-3.3.9/bin/mvn release:clean && \
-~/apache-maven-3.3.9/bin/mvn release:prepare -Ptotal && \
-~/apache-maven-3.3.9/bin/mvn release:perform -Ptotal
+mvn release:clean && \
+
+mvn --batch-mode -Dtag=tag-0.4 release:prepare \
+                 -DreleaseVersion=0.4 \
+                 -DdevelopmentVersion=0.4-SNAPSHOT \
+                  -Ptotal && \
+
+mvn release:perform -Ptotal

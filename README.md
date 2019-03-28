@@ -24,5 +24,5 @@ HTML Tags Library
 
 ### Who do I talk to? ###
 
-* For any question feel free to contact Misha github16@lu-mo.ru
-* My linkedin profile: https://www.linkedin.com/in/mikhail-kryukov-8a2199119
+* For any question feel free to contact me: razrab@mizhgan.com
+* My site: http://mizhgan.com

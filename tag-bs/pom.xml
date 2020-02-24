@@ -1,30 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>tag-parent</artifactId>
-        <groupId>ru.lumo.html</groupId>
-        <version>1.4-SNAPSHOT</version>
+        <groupId>com.mizhgan.tag</groupId>
+        <version>1.5-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>tag-bs</artifactId>
     <packaging>jar</packaging>
-    <name>Bootstrap Tag Library</name>
+    <name>Bs4 Tag Library</name>
 
     <dependencies>
         <dependency>
-            <groupId>ru.lumo.html</groupId>
+            <groupId>com.mizhgan.tag</groupId>
             <artifactId>tag-core</artifactId>
-            <version>1.4-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
+            <version>1.5-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
-
 </project>
